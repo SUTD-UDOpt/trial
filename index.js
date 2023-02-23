@@ -40,7 +40,7 @@ app.post('/api_python', (request,response) => {
                     console.log(jsonParse);
                     response.json(jsonParse);
                 } catch(error){
-                    console.error(`Unexpected end of json input...`);
+                    console.log(error);
                     response.json({data:1});
                 }
             }
