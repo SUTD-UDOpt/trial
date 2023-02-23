@@ -5,8 +5,8 @@ const express = require('express');
 
 // start express server at localhost 3000
 const app = express();
-app.listen(3000, () => console.log('http://localhost:3000'))
-app.use(cors({origin:'http://localhost:3000', credentials : true}));
+app.listen(3000, () => console.log('http://13.212.124.234:3000/'))
+app.use(cors({origin:'http://13.212.124.234:3000/', credentials : true}));
 
 // import libraries
 app.use('/static', express.static('./static'))
