@@ -55,7 +55,7 @@ function init() {
 
     // lights
     const dirLight1 = new THREE.DirectionalLight( 0xffffff, 0.2);
-    dirLight1.position.set( 750, 150, 600 );
+    dirLight1.position.set( 500, 500, 500 );
     scene.add( dirLight1 );
 
     // DIRECTIONAL LIGHT SHADOWS
@@ -298,7 +298,7 @@ function optimizeFunction(){
                 while(ans.firstChild){
                     ans.removeChild(ans.firstChild);
                 }
-                // Claer buttons
+                // Clear buttons
                 let divS = document.getElementById('buttonListSimple');
                 while(divS.firstChild){
                     divS.removeChild(divS.firstChild);
@@ -324,7 +324,6 @@ function optimizeFunction(){
                             obj2.push(lastResult[resultKeys[i]]["f1"])
                         }
                     }
-
                     let max1 = obj1.indexOf(Math.max(...obj1))
                     let max2 = obj2.indexOf(Math.max(...obj2))
                     let min1 = obj1.indexOf(Math.min(...obj1))
@@ -493,10 +492,10 @@ document.getElementById("submit1").addEventListener("click", () => {
         FUNCT.recordInteraction("submitSurveyFirstSimpleRun")
         if (instructionReady == false){
             FUNCT.turnOffPopUp("submit1")
-            FUNCT.recordAnswers(1,2)
+            FUNCT.recordAnswers(1,3)
         } else {
             FUNCT.togglePopUps(2)
-            FUNCT.recordAnswers(1,2)
+            FUNCT.recordAnswers(1,3)
         }
         formAnswered = true
     }
@@ -509,14 +508,14 @@ document.getElementById("submit3").addEventListener("click", () => {
     }
 })
 document.getElementById("submit5").addEventListener("click", () => {
-    if (FUNCT.checkAnswers(5,3) == true){
+    if (FUNCT.checkAnswers(5,2) == true){
         FUNCT.recordInteraction("submitSurveyFirstAdvancedRun")
         if (instructionReady == false){
             FUNCT.turnOffPopUp("submit5")
-            FUNCT.recordAnswers(5,3)
+            FUNCT.recordAnswers(5,2)
         } else {
             FUNCT.togglePopUps(6)
-            FUNCT.recordAnswers(5,3)
+            FUNCT.recordAnswers(5,2)
         }
         formAnswered = true
     }
@@ -529,21 +528,21 @@ document.getElementById("submit7").addEventListener("click", () => {
     }
 })
 document.getElementById("submit8").addEventListener("click", () => {
-    if (FUNCT.checkAnswers(8,9) == true){
+    if (FUNCT.checkAnswers(8,11) == true){
         FUNCT.recordInteraction("submitSurveySimple")
-        FUNCT.recordAnswers(8,9)
-        simplePhase = false
-        FUNCT.togglePopUps(4)
-    }
-})
-document.getElementById("submit9").addEventListener("click", () => {
-    if (FUNCT.checkAnswers(9,14) == true){
-        FUNCT.recordInteraction("submitSurveyAdvanced")
-        FUNCT.recordAnswers(9,14)
-        FUNCT.turnOffPopUp("pop9")
+        FUNCT.recordAnswers(8,11)
+        FUNCT.turnOffPopUp("pop8")
         FUNCT.downloadData()
         FUNCT.overlayBlock()
         FUNCT.togglePopUps(12)
+    }
+})
+document.getElementById("submit9").addEventListener("click", () => {
+    if (FUNCT.checkAnswers(9,12) == true){
+        FUNCT.recordInteraction("submitSurveyAdvanced")
+        FUNCT.recordAnswers(9,12)
+        simplePhase = true
+        FUNCT.togglePopUps(0)
     }
 })
 document.getElementById("submit11").addEventListener("click", () => {

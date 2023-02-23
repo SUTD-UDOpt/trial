@@ -4,7 +4,7 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>2211 UI Test 1</title>
+        <title>2211 UI Test 2</title>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
         <link rel="stylesheet" href="static/style.css">
     </head>
@@ -26,13 +26,13 @@
             <div class="row invisibleScroll" style="width: 100%; margin: 0px;">
                <div class="col" id="popup10">
                   <h5 class="row">Task</h5>
-                  <p class="row">This work-in-progress tool supports urban planners to generate likely development scenarios for land parcels in Singapore. Choose a parcel and use this optimization tool to find the most satisfactory building solution. The optimization objectives tested here are building orientation and view obstruction. The Gross Plot Ratio (GPR) of each parcel is fixed. You will test 2 different optimization interfaces: a simple interface and an advanced interface. You will be able to rerun each optimization multiple times.</p>
+                  <p class="row">This work-in-progress tool supports urban planners to generate likely development scenarios for land parcels in Singapore. Choose a parcel and use this optimization tool to find the most satisfactory building solution. The optimization objectives tested here are building orientation and view obstruction. The Gross Plot Ratio (GPR) of each parcel is fixed. You will test 2 different optimization interfaces: an advanced interface and a simple interface. You will be able to rerun each optimization multiple times.</p>
                   <p class="row">
                      You can read this task again by clicking the help button at the top right corner of the screen.
                   </p>
                </div>
 
-               <div class="col" id="popup0">
+               <div class="col" id="popup0" style="display: none;">
                   <h5 class="row">Instruction for simple optimization</h5>
                   <ul class="row">
                      <li>Select a parcel that you wish to optimize by clicking on the available parcels. Click the “FINALIZE” button when you are done with your selection.</li>
@@ -57,7 +57,7 @@
                   </div>
                </div>
 
-               <div class="col" id="popup4" style="display: none;">
+               <div class="col" id="popup4">
                   <h5 class="row">Instruction for advanced optimization</h5>
                   <ul class="row">
                      <li>Select a parcel that you wish to optimize by clicking on the available parcels. Click the “FINALIZE” button when you are done with your selection.</li>
@@ -94,15 +94,15 @@
                   <h5 class="row">You're almost done!</h5>
                   <p class="row">Please don't close this tab for another ~1 minute. in the mean time please fill this short google form survey!</p>
                </div>
-            </div>
 
-            <div class="col" id="popup13" style="display: none;">
-               <p id="sliderDesc" class="row"></p>
-               <img id="sliderImg1" class="sliderDesc" src="./static/images/slider_1.png">
-               <img id="sliderImg2" class="sliderDesc" src="./static/images/slider_2.png">
-               <img id="sliderImg3" class="sliderDesc" src="./static/images/slider_3.png">
-               <img id="sliderImg4" class="sliderDesc" src="./static/images/slider_4.png">
-               <img id="sliderImg5" class="sliderDesc" src="./static/images/slider_5.png">
+               <div class="col" id="popup13" style="display: none;">
+                  <p id="sliderDesc" class="row"></p>
+                  <img id="sliderImg1" class="sliderDesc" src="./static/images/slider_1.png">
+                  <img id="sliderImg2" class="sliderDesc" src="./static/images/slider_2.png">
+                  <img id="sliderImg3" class="sliderDesc" src="./static/images/slider_3.png">
+                  <img id="sliderImg4" class="sliderDesc" src="./static/images/slider_4.png">
+                  <img id="sliderImg5" class="sliderDesc" src="./static/images/slider_5.png">
+               </div>
             </div>
 
             <div class="row justify-content-md-center">
@@ -127,6 +127,11 @@
                   <div class="form-row">
                      <label for="qn1_1">How confident are you in finding a satisfactory solution in this round?</label>
                   </div>
+               </div>
+
+               <div class="form-group">
+                  <label for="qn1_2">In your opinion how will the optimization results in the simple round perform compared to the advanced round?</label>
+                  <input type="text" class="form-control" id="qn1_2" name="lastname" placeholder="Answer.." autocomplete="off" required>
                </div>
                
                <button class="btn" id="submit1" style="background-color: #1b1b3a; color:#f3f3f3;">Submit</button>
@@ -169,11 +174,6 @@
                   <div class="form-row">
                      <label for="qn5_1">How confident are you in finding a satisfactory solution in the next round?</label>
                   </div>
-               </div>
-
-               <div class="form-group">
-                  <label for="qn5_2">In your opinion how will the optimization results in the advanced round perform compared to the simple round?</label>
-                  <input type="text" class="form-control" id="qn5_2" name="lastname" placeholder="Answer.." autocomplete="off" required>
                </div>
                
                <button class="btn" id="submit5" style="background-color: #1b1b3a; color:#f3f3f3;">Submit</button>
@@ -257,6 +257,17 @@
                      <label for="qn8_8"><b>Generated results were believable / trustworthy.</b></label>
                   </div>
                </div>
+
+               <div class="form-group" id="likert8_9">
+                  <div class="form-row">
+                     <label for="qn8_9"><b>I am experienced with design optimization tools.</b></label>
+                  </div>
+               </div>
+
+               <div class="form-group">
+                  <label for="qn8_10">What is your profession?</label>
+                  <input type="text" class="form-control" id="qn8_10" placeholder="profession.." autocomplete="off" required>
+               </div>
                
                <button class="btn" id="submit8" style="background-color: #1b1b3a; color:#f3f3f3;">Submit</button>
             </form>
@@ -335,17 +346,6 @@
                      <label for="qn9_11"><b>"Optimization Settings" was confusing to use.</b></label>
                   </div>
                </div>
-
-               <div class="form-group" id="likert9_12">
-                  <div class="form-row">
-                     <label for="qn9_12"><b>I am experienced with design optimization tools.</b></label>
-                  </div>
-               </div>
-
-               <div class="form-group">
-                  <label for="qn9_13">What is your profession?</label>
-                  <input type="text" class="form-control" id="qn9_13" placeholder="profession.." autocomplete="off" required>
-               </div>
                
                <button class="btn" id="submit9" style="background-color: #1b1b3a; color:#f3f3f3;">Submit</button>
             </form>
@@ -372,7 +372,7 @@
                         <h5>Select a Parcel to Work with</h5>
                      </div>
                      <div class="row">
-                        <input type="button" id="parcelButton" class="narrow disabled" value="FINALIZE" style="margin-top: 2vh">
+                        <input type="button" id="parcelButton" class="narrow disabled" value="FINALIZE" style="margin-top: 2vh" disabled>
                      </div>
                   </div>
 

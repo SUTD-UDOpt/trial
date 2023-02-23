@@ -30,9 +30,9 @@ rn_gdf = gpd.read_file('static\geojson\Clean_MP19_RoadNetwork_Tampines.geojson')
 lu_gdf = gpd.read_file('static\geojson\Clean_MP19_LandUse_Tampines.geojson').to_crs(3857)
 
 # json input as dict variable
-#user_input = ast.literal_eval(sys.argv[1])
+user_input = ast.literal_eval(sys.argv[1])
 
-
+'''
 user_input = {
     "OptimizationType": "advanced",
     "Parcel_ID": "LU_13",
@@ -50,7 +50,7 @@ user_input = {
     "CrossOverRate": 0.9,
     'ObjectiveWeights': [0.9,0.1]
     }
-
+'''
 
 # get relevent data about selected parcel in json format
 selected_parcel_json = json.loads(lu_gdf.loc[lu_gdf.UD_ID == user_input['Parcel_ID']].to_json())['features'][0]
@@ -164,6 +164,5 @@ for i, row in ndf.iterrows():
     ids = ["ParcelJSON"] + list(user_input['ParameterBounds'].keys())
     output = EvaluateGrasshopper(filename, parameters, ids)
     ndf_dict[i]['BuildingDraco'] = [output['RH_OUT:BuildingDracoMesh']['{0}'][0]['data'],output['RH_OUT:BuildingDracoMesh']['{0}'][1]['data']]
-    ndf_dict[i]['GFA'] = list(json.loads(json.loads(output['RH_OUT:BuildingJSON']['{0}'][0]['data'])).values())[0]['properties']['GFA']
 
 print(json.dumps(ndf_dict))

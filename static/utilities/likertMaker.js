@@ -35,6 +35,6 @@ export function initialiseLikert(){
     createLikertScale(3,1,2,1)
     createLikertScale(5,1,1,1)
     createLikertScale(7,1,2,1)
-    createLikertScale(8,9,0,2)
-    createLikertScale(9,13,0,2)
+    createLikertScale(8,10,0,2)
+    createLikertScale(9,12,0,2)
 }

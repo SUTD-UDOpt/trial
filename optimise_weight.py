@@ -11,9 +11,9 @@ pd.options.mode.chained_assignment = None  # default='warn'
 import compute_rhino3d.Util
 import compute_rhino3d.Grasshopper as gh
 compute_rhino3d.Util.authToken = ""
-compute_rhino3d.Util.url = "http://localhost:8081/"
-#compute_rhino3d.Util.url = "http://52.221.220.104:80/"
-#compute_rhino3d.Util.apiKey = '0hOfevzxs49OfbXDqyUx'
+#compute_rhino3d.Util.url = "http://localhost:8081/"
+compute_rhino3d.Util.url = "http://52.221.220.104:80/"
+compute_rhino3d.Util.apiKey = '0hOfevzxs49OfbXDqyUx'
 
 from pymoo.core.problem import ElementwiseProblem
 from pymoo.algorithms.moo.nsga2 import NSGA2

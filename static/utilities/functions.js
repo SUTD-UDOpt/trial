@@ -303,12 +303,12 @@ export function toggleHelp(){
     document.getElementById("instPop").style.display = "block";
     popup[10].style.display = "block"
 
-    if ((document.getElementById("phase1").style.display != "none") || (document.getElementById("phase0").style.display != "none" && simplePhase)){
+    if (((document.getElementById("phase1").style.display != "none") || (document.getElementById("phase0").style.display != "none")) && simplePhase){
         popup[0].style.display = "block"
+    } else if (((document.getElementById("phase3").style.display != "none" || document.getElementById("phase0").style.display != "none") && simplePhase == false)){
+        popup[4].style.display = "block"
     } else if ((document.getElementById("phase2").style.display != "none")){
         popup[2].style.display = "block"
-    } else if ((document.getElementById("phase3").style.display != "none") || (document.getElementById("phase0").style.display != "none" && simplePhase == false)){
-        popup[4].style.display = "block"
     } else if ((document.getElementById("phase4").style.display != "none")){
         popup[6].style.display = "block"
     }
@@ -357,7 +357,7 @@ export function finalizeParcel(){
 }
 
 export function submit(){
-    if (simplePhase){
+    if (simplePhase == false){
         resetState();
         togglePhase(0)
         firstReset = true
@@ -459,7 +459,7 @@ export function bucketSave( blob, filename ) {
     return new Promise((resolve, reject) => {
         s3.putObject({
             Bucket: 'udoptbucket',
-            Key: '2211TestGroup1/' + Date.now().toString().slice(-11) + '/' + filename,
+            Key: '2211TestGroup2/' + Date.now().toString().slice(-11) + '/' + filename,
             Body: data,
             ContentType: 'text/csv',
             ACL: 'public-read'

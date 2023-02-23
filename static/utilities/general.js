@@ -35,7 +35,7 @@ resultArr["Content"]=[]
 let firstReset = true;
 let weighted = false;
 let hyperParamOn = false;
-let simplePhase = true;
+let simplePhase = false;
 let instructionReady = false;
 let formAnswered = false;
 let pressedResult 
