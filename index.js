@@ -26,9 +26,11 @@ app.post('/api_python', (request,response) => {
         const python_process = spawner('python',['./optimise_weight_v2.py', JSON.stringify(request.body)]);
         // if python printed something, print the output
         var newsItems = '';
+        console.log("hello")
         python_process.stdout.on("data", function (data) {
             newsItems += data.toString();
         });
+        console.log(newsItems)
 
         python_process.stdout.on("end", function () {
             if (newsItems.includes("failed")){
@@ -36,7 +38,6 @@ app.post('/api_python', (request,response) => {
                 response.json({data:0});
             } else {
                 try {
-                    console.log(newsItems)
                     var jsonParse = JSON.parse(newsItems);
                     console.log(jsonParse);
                     response.json(jsonParse);
