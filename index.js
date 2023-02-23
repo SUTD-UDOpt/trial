@@ -36,6 +36,7 @@ app.post('/api_python', (request,response) => {
                 response.json({data:0});
             } else {
                 try {
+                    console.log(newsItems)
                     var jsonParse = JSON.parse(newsItems);
                     console.log(jsonParse);
                     response.json(jsonParse);
