@@ -29,8 +29,9 @@ app.post('/api_python', (request,response) => {
         console.log(python_process)
         python_process.stdout.on("data", function (data) {
             newsItems += data.toString();
+            console.log(data)
         });
-        console.log(newsItems)
+        console.log("hi" + newsItems)
 
         python_process.stdout.on("end", function () {
             if (newsItems.includes("failed")){
